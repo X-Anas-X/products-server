@@ -1,6 +1,5 @@
 import mongoose, {ConnectOptions} from 'mongoose';
 import {Express} from 'express';
-import {URI} from './configs';
 
 export const connectDB = async (app: Express) => {
     try {
