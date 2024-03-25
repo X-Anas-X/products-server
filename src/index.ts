@@ -14,6 +14,9 @@ interface MongoError extends Error {
 const app = express();
 app.use(express.json());
 
+// return hello world
+app.get('/', (req, res) => res.send('Hello World!'));
+
 // Create a new product
 app.post('/products', async (req, res) => {
     try {
