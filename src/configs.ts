@@ -1,2 +1,1 @@
-export const URI =
-    'mongodb+srv://aztest:aztest@cluster0.cqafd0t.mongodb.net/?retryWrites=true&w=majority';
+export const URI = 'mongodb+srv://anaszain1996:Lg8aIGnpzuAvYWCZ@test.wetatdc.mongodb.net';

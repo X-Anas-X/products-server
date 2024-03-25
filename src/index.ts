@@ -84,6 +84,48 @@ app.delete('/products/:id', async (req, res) => {
     }
 });
 
+// Get favorites
+app.get('/favorites', async (req, res) => {
+    try {
+        const products = await Product.find({isFavorite: true});
+        res.send(products);
+    } catch (err) {
+        res.status(500).send(err);
+    }
+});
+
+// Add to favorites
+app.post('/products/:id/favorite', async (req, res) => {
+    try {
+        const product = await Product.findById(req.params.id);
+        if (!product) {
+            return res.status(404).send();
+        }
+        product.isFavorite = true;
+        product.comment = req.body.comment;
+        await product.save();
+        res.send(product);
+    } catch (err) {
+        res.status(500).send(err);
+    }
+});
+
+// Remove from favorites
+app.delete('/products/:id/favorite', async (req, res) => {
+    try {
+        const product = await Product.findById(req.params.id);
+        if (!product) {
+            return res.status(404).send();
+        }
+        product.isFavorite = false;
+        product.comment = '';
+        await product.save();
+        res.send(product);
+    } catch (err) {
+        res.status(500).send(err);
+    }
+});
+
 // Signup endpoint
 app.post('/signup', async (req, res) => {
     try {

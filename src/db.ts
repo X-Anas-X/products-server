@@ -5,7 +5,6 @@ import {URI} from './configs';
 export const connectDB = async (app: Express) => {
     try {
         mongoose.set('strictQuery', false);
-        // await mongoose.connect('mongodb://localhost:27017/products-app', {
         await mongoose.connect(URI, {
             useNewUrlParser: true,
             useUnifiedTopology: true,
