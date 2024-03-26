@@ -84,7 +84,7 @@ app.delete('/products/:id', async (req, res) => {
     }
 });
 
-// Get favorites
+// Get all favorites
 app.get('/favorites', async (req, res) => {
     try {
         const products = await Product.find({isFavorite: true});
